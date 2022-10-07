@@ -10,7 +10,7 @@ def rule110(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1, len(pattern)-1):
@@ -41,7 +41,7 @@ def rule90(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -72,7 +72,7 @@ def rule30(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -103,7 +103,7 @@ def rule184(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -134,7 +134,7 @@ def myrule1(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -165,7 +165,7 @@ def myrule2(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -196,7 +196,7 @@ def myrule3(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -227,7 +227,7 @@ def myrule4(frameNum, image, pattern, j):
 
     if j[-1] > len(pattern[0, :])-1:
         ani.FuncAnimation.pause(animation)
-        print('Simulation complete!')
+
         return image
 
     for i in range(1,len(pattern)-1):
@@ -251,12 +251,13 @@ def myrule4(frameNum, image, pattern, j):
     image.set_data(pattern)
     return image
 
+# program will save a gif to the local folder
 if __name__=='__main__':
     N = 100
     pattern=np.zeros([N, N])
     #pattern[0,:] = np.random.randint(0, 2, size=N)
     pattern[0, round(N/2)]=1
-    rule = input('Enter rule number: ')
+    rule = input('Enter rule number [110, 90, 30, 184, myrule<1:4>]: ')
     global j
     j = []
 
@@ -290,4 +291,5 @@ if __name__=='__main__':
     else:
         print('invalid rule please try again')
         os.system('/usr/local/bin/python3.9 /Users/antonrosenberg/Documents/GitHub/ComplexSystem/HomeWork1/1D_gameoflife.py')
-    plt.show()
+    print('Simulation complete check gif out')
+    #plt.show()

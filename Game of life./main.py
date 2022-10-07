@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as ani
 from GUI import createInputWin
 
-from scipy import signal
-import time
-
+# Calculates value of neighbouring squares
 def calcNeighbours(state, N):
     index = np.where(state == 1)
     index = np.array(index)
@@ -104,7 +102,7 @@ def udateStateMyway3(frameNum, image, state, N):
     image.set_data(state)
     return image
 
-
+#Updates vote state
 def udateVote(frameNum, image, state, N):
 
     numOfNeighbours = calcNeighbours(state, N)
@@ -118,8 +116,9 @@ def udateVote(frameNum, image, state, N):
     image.set_data(state)
     return image
 
+# Initiates voters
 def initiateVote(N, probability):
-    state = np.zeros([N,N])
+    state = np.zeros([N, N])
     for i in range(N):
         for j in range(N):
             r = np.random.rand()
@@ -129,10 +128,11 @@ def initiateVote(N, probability):
                 state[i, j] = 0
     return state
 
+# Run to choose your starting configuration to game of life (DOES NOT WORK ON MAC UNFORTIONATLY SEE ROW 139)
 if __name__ == '__main__':
     N = 10
     p = 0.5
-    state = createInputWin(N)
+    state = createInputWin(N)  # Creates GUI remove when on mac
     #state = initiateVote(N, probability=p)
     #state = np.random.randint(0, 2, [N,N])
     #Tkinker doesn't work on mac so you need to manually use the matrix below for initiating a certain pattern
